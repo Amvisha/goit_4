@@ -46,11 +46,22 @@ fh.read(2)
 position = fh.tell()
 print(position)  # 3
 fh.close()
-"""
+
 fh = open('text.txt', 'w')
 try:
     # Виконання операцій з файлом
     fh.write('Some data')
 finally:
     # Закриття файлу в блоці finally гарантує, що файл закриється навіть у разі помилки
-    fh.close()
+    fh.close(
+
+with open("test.txt", "w") as fh:
+    fh.write("first line\nsecond line\nthird line")
+with open("test.txt", "r") as fh:
+    lines = [el.strip() for el in fh.readlines()]
+print(lines)
+
+with open('raw_data.bin', 'wb') as fh:
+    fh.write(b'Hello world!')
+
+
